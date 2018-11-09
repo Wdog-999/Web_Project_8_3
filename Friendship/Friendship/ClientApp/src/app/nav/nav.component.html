@@ -1,4 +1,23 @@
 <!--<p>
   nav works!
 </p>-->
-<mat-toolbar color="primary">Friendship</mat-toolbar>
+<mat-toolbar color="accent">
+  <span><b>Friendship</b></span>
+  <span class="menu"><a mat-button>Matches</a></span>
+  <span class="menu"><a mat-button>Friends List</a></span>
+  <span class="fill-remaining-space"></span>
+  <form class="menu">
+    <mat-form-field>
+    <input matInput placeholder="Username" />
+    </mat-form-field>
+    <mat-form-field>
+    <input matInput placeholder="Password" type="password" />
+    </mat-form-field>
+    <button mat-stroked-button type="submit">Log In</button>
+  </form>
+  <div class="menu-icon"></div>
+  <div class="menu-icon"></div>
+  <div class="menu-icon"></div>
+</mat-toolbar>
+
+
