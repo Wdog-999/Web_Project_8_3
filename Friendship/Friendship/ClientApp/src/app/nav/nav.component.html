@@ -7,19 +7,19 @@
   <span class="menu"><a mat-button>Friends List</a></span>
   <span class="fill-remaining-space"></span>
   <form class="menu">
-    <mat-form-field>
+    <mat-form-field [ngStyle]="{'font-size.px': 14}" class="menu">
       <input matInput placeholder="Username" />
     </mat-form-field>
-    <mat-form-field>
+    <mat-form-field [ngStyle]="{'font-size.px': 14}" class="menu">
       <input matInput placeholder="Password" type="password" />
     </mat-form-field>
-    <mat-form-field>
       <button mat-stroked-button type="submit">Log In</button>
-    </mat-form-field>
 </form>
-  <div class="menu-icon"></div>
-  <div class="menu-icon"></div>
-  <div class="menu-icon"></div>
+  <span>
+    <div class="menu-icon"></div>
+    <div class="menu-icon"></div>
+    <div class="menu-icon"></div>
+  </span>
 </mat-toolbar>
 
 
