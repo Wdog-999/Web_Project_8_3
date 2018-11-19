@@ -1,20 +1,12 @@
 <!--<p>
   nav works!
 </p>-->
-<mat-toolbar color="accent">
+<mat-toolbar color="primary">
   <span><b>Friendship</b></span>
   <span class="menu"><a mat-button>Matches</a></span>
   <span class="menu"><a mat-button>Friends List</a></span>
   <span class="fill-remaining-space"></span>
-  <form class="menu">
-    <mat-form-field [ngStyle]="{'font-size.px': 14}" class="menu">
-      <input matInput placeholder="Username" />
-    </mat-form-field>
-    <mat-form-field [ngStyle]="{'font-size.px': 14}" class="menu">
-      <input matInput placeholder="Password" type="password" />
-    </mat-form-field>
-      <button mat-stroked-button type="submit">Log In</button>
-</form>
+  <app-login></app-login>
   <span>
     <div class="menu-icon"></div>
     <div class="menu-icon"></div>

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
+using Friendship.Data;
 using Friendship.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
@@ -34,7 +35,12 @@ namespace Friendship.Controllers
                 var result = await _signInManager.PasswordSignInAsync(user.UserName, user.Password, false, false);
                 if (result.Succeeded)
                 {
-                    return Ok("Login succeeded");
+                    LoginDTO validUser = new LoginDTO();
+                    validUser.UserName = user.UserName;
+                    validUser.Password = user.Password;
+                    string tok = BuildToken(validUser);
+                    var user2 = await _signInManager.UserManager.FindByNameAsync(validUser.UserName);
+                    return Ok(new { Msg = "Login succeeded", User = user.UserName, ID = user2.Id, Token = tok });
                 }
                 else
                 {
