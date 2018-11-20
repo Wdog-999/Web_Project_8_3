@@ -61,7 +61,7 @@ namespace Friendship
             else
             {
                 app.UseExceptionHandler("/Error");
-                app.UseDefaultFiles();
+                //app.UseDefaultFiles();
             }
 
             app.UseStaticFiles();
