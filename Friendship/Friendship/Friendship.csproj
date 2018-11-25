@@ -31,12 +31,14 @@
     <None Remove="ClientApp\src\app\models\user.ts" />
     <None Remove="ClientApp\src\app\modules\material.module.ts" />
     <None Remove="ClientApp\src\app\register\password-confirm.ts" />
+    <None Remove="ClientApp\src\app\register\password.directive.ts" />
   </ItemGroup>
 
   <ItemGroup>
     <TypeScriptCompile Include="ClientApp\src\app\models\authUser.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\models\user.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\modules\material.module.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\register\password.directive.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\register\password-confirm.ts" />
   </ItemGroup>
 

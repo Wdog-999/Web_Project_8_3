@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { LoginVM } from '../login-vm';
 import { NgForm } from '@angular/forms';
 import { AuthService } from '../services/auth.service';
+import { PasswordValidator } from './password.directive';
 
 @Component({
   selector: 'app-register',
