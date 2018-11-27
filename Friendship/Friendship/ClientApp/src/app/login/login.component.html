@@ -1,4 +1,4 @@
-<form class="menu" (ngSubmit)="onSubmit(login)" #login="ngForm">
+<form *ngIf="!log" class="menu" (ngSubmit)="onSubmit(login)" #login="ngForm">
   <mat-form-field [ngStyle]="{'font-size.px': 14}" class="menu">
     <input matInput name="UserName" id="UserName" required [(ngModel)]="model.UserName" placeholder="Username" />
   </mat-form-field>
@@ -9,3 +9,7 @@
   <!--TODO: remove this: {{model.Password}}-->
   <button mat-stroked-button type="submit" [disabled]="!login.form.valid">Log In</button>
 </form>
+<div *ngIf="log" class="menu">
+  Hi, {{user}}
+  <button mat-stroked-button (click)="logOut()">Log Out</button>
+</div>

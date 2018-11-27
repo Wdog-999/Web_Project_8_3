@@ -42,7 +42,7 @@ namespace Friendship.Controllers
                     validUser.Password = user.Password;
                     string tok = BuildToken(validUser);
                     var user2 = await _signInManager.UserManager.FindByNameAsync(validUser.UserName);
-                    return Ok(new { Msg = "Login succeeded", User = user.UserName, ID = user2.Id, Token = tok });
+                    return Ok(new { Msg = "Login succeeded", User = user.UserName, ID = user2.Id, tokenString = tok });
                 }
                 else
                 {
