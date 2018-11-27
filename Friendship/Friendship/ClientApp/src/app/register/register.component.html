@@ -1,5 +1,5 @@
-<h1>Sign Up</h1>
-<form class="menu" (ngSubmit)="onSubmit(register)" #register="ngForm">
+<h1 style="text-align:center">Sign Up</h1>
+<form class="menu" (ngSubmit)="onSubmit(register)" #register="ngForm" style="text-align:center">
   <div class="form-group">
     <label for="UserName">Username</label>
     <input class="menu" type="text" name="UserName" id="UserName" [(ngModel)]="model.UserName" required>
@@ -14,7 +14,9 @@
     <label for="Password"> Confirm Password</label>
     <input class="menu" type="password" name="CPassword" id="CPassword" ngModel minlength="8" required #o="ngModel">
   </div>
-  <button mat-stroked-button type="submit" [disabled]="!register.form.valid || n.value != o.value">Register</button>
+  <span class="menu" style="text-align:center; display:block"><button mat-stroked-button type="submit" [disabled]="!register.form.valid || n.value != o.value">Register</button></span>
 </form>
+<br />
+<span class="menu" style="text-align:center; display:block"><a routerLink="/home" mat-button>Go Back</a></span>
 <h3 *ngIf="posted">Success!</h3>
 <h3 *ngIf="!posted && submitted">Failure!</h3>
