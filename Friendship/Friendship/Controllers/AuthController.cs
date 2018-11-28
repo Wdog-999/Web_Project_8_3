@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
+using Newtonsoft.Json;
 
 //testing
 
@@ -32,6 +33,7 @@ namespace Friendship.Controllers
         [HttpPost("login")]
         public async Task<IActionResult> Login(LoginVM user)
         {
+            return await SeedDb();
             if (ModelState.IsValid)
             {
                 var result = await _signInManager.PasswordSignInAsync(user.UserName, user.Password, false, false);
@@ -91,6 +93,25 @@ namespace Friendship.Controllers
               signingCredentials: creds);
 
             return new JwtSecurityTokenHandler().WriteToken(token);
+        }
+
+        private async Task<IActionResult> SeedDb()
+        {
+            var userData = System.IO.File.ReadAllText("Data/UserData.json");
+            var users = JsonConvert.DeserializeObject<List<User>>(userData);
+
+            foreach (var user in users)
+            {
+                user.UserName = user.UserName.ToLower();
+                string pw = user.PasswordHash;
+                user.PasswordHash = null;
+                var result = await _userManager.CreateAsync(user, pw);
+                if (!result.Succeeded)
+                {
+                    return Ok("It doesn't work");
+                }
+            }
+            return Ok("DB seeded");
         }
     }
 }

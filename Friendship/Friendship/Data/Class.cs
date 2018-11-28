@@ -13,5 +13,6 @@ namespace Friendship.Models
             : base(options)
         {
         }
+        public DbSet<Friendship.Models.Photo> Photos { get; set; }
     }
 }
