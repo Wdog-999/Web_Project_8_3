@@ -33,7 +33,6 @@ namespace Friendship.Controllers
         [HttpPost("login")]
         public async Task<IActionResult> Login(LoginVM user)
         {
-            return await SeedDb();
             if (ModelState.IsValid)
             {
                 var result = await _signInManager.PasswordSignInAsync(user.UserName, user.Password, false, false);
@@ -57,6 +56,7 @@ namespace Friendship.Controllers
         [HttpPost("register")]
         public async Task<IActionResult> Register([FromBody] RegisterVM user)
         {
+            //return await SeedDb();
             if (!string.IsNullOrEmpty(user.UserName))
             {
                 // Make user name lower case
@@ -108,7 +108,7 @@ namespace Friendship.Controllers
                 var result = await _userManager.CreateAsync(user, pw);
                 if (!result.Succeeded)
                 {
-                    return Ok("It doesn't work");
+                    return Ok(result);
                 }
             }
             return Ok("DB seeded");
