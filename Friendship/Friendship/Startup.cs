@@ -1,3 +1,4 @@
+using Friendship.Data;
 using Friendship.Models;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
@@ -29,7 +30,13 @@ namespace Friendship
 
             services.AddIdentity<User, IdentityRole>().AddEntityFrameworkStores<FriendshipContext>();
 
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1)
+                .AddJsonOptions(opt => {
+                    opt.SerializerSettings.ReferenceLoopHandling =
+                             Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+                });
+
+            services.AddScoped<IUserRepository, UserRepository>();
 
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>

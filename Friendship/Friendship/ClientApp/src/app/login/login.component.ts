@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit {
         console.log(error)
       });
     form.reset();
-    //window.location.reload();
+    window.location.reload();
   }
 
   logOut() {
