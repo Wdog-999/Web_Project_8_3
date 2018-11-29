@@ -31,7 +31,7 @@ namespace Friendship.Controllers
             _repo.Delete(entity);
         }
 
-        public async Task<User> GetUser(int id)
+        public async Task<User> GetUser(string id)
         {
             return await _repo.GetUser(id);
         }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Friendship.Models;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 
 namespace Friendship.Data
@@ -28,14 +29,27 @@ namespace Friendship.Data
             throw new NotImplementedException();
         }
 
-        public async  Task<User> GetUser(int id)
+        public async  Task<User> GetUser(string id)
         {
-            throw new NotImplementedException();
+            if (id == null)
+            {
+                return null;
+            }
+
+            var user = await _context.Users
+                .FirstOrDefaultAsync(m => m.Id == id);
+            if (user == null)
+            {
+                return null;
+            }
+            return user;
         }
 
         public async Task<IEnumerable<User>> GetUsers()
         {
-            throw new NotImplementedException();
+            var users = from u in _context.Users
+                        select u;
+            return users;
         }
 
         public async Task<bool> SaveAll()
