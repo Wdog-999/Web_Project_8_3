@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Friendship.Data;
 using Friendship.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -13,16 +14,36 @@ namespace Friendship.Controllers
     [ApiController]
     public class UsersController : ControllerBase
     {
-        private readonly FriendshipContext _context;
-        private readonly IConfiguration config;
+        private readonly UserRepository _repo;
 
-        public UsersController(FriendshipContext context, IConfiguration iconfig)
+        public UsersController(UserRepository repo)
         {
-            _context = context;
-            config = iconfig;
+            _repo = repo;
         }
 
+        public void Add<T>(T entity) where T : class
+        {
+            _repo.Add(entity);
+        }
 
+        public void Delete<T>(T entity) where T : class
+        {
+            _repo.Delete(entity);
+        }
 
+        public async Task<User> GetUser(int id)
+        {
+            return await _repo.GetUser(id);
+        }
+
+        public async Task<IEnumerable<User>> GetUsers()
+        {
+            return await _repo.GetUsers();
+        }
+
+        public async Task<bool> SaveAll()
+        {
+            return await _repo.SaveAll();
+        }
     }
 }
