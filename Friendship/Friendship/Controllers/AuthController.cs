@@ -35,7 +35,9 @@ namespace Friendship.Controllers
         {
             if (ModelState.IsValid)
             {
-                var result = await _signInManager.PasswordSignInAsync(user.UserName, user.Password, false, false);
+                var userInfo = await _userManager.FindByNameAsync(user.UserName);
+                var result = await _signInManager.CheckPasswordSignInAsync(userInfo, user.Password, false);
+                //var result = await _signInManager.PasswordSignInAsync(user.UserName, user.Password, false, false);
                 if (result.Succeeded)
                 {
                     LoginDTO validUser = new LoginDTO();

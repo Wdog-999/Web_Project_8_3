@@ -28,7 +28,14 @@ namespace Friendship
         {
             services.AddDbContext<FriendshipContext>(options => options.UseSqlServer(Configuration.GetConnectionString("FriendshipContext")));
 
-            services.AddIdentity<User, IdentityRole>().AddEntityFrameworkStores<FriendshipContext>();
+            //services.AddIdentity<User, IdentityRole>().AddEntityFrameworkStores<FriendshipContext>();
+
+            services.AddIdentityCore<User>(options =>
+            {
+                // Custom Password settings here
+            })
+            .AddEntityFrameworkStores<FriendshipContext>()
+            .AddSignInManager<SignInManager<User>>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1)
                 .AddJsonOptions(opt => {
