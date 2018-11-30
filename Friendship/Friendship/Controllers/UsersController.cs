@@ -14,9 +14,9 @@ namespace Friendship.Controllers
     [ApiController]
     public class UsersController : ControllerBase
     {
-        private readonly UserRepository _repo;
+        private readonly IUserRepository _repo;
 
-        public UsersController(UserRepository repo)
+        public UsersController(IUserRepository repo)
         {
             _repo = repo;
         }
@@ -31,16 +31,20 @@ namespace Friendship.Controllers
             _repo.Delete(entity);
         }
 
+        [HttpGet("getuser")]
         public async Task<User> GetUser(string id)
         {
             return await _repo.GetUser(id);
         }
 
+        [HttpGet("getusers")]
         public async Task<IEnumerable<User>> GetUsers()
         {
-            return await _repo.GetUsers();
+            var users = await _repo.GetUsers();
+            return users;
         }
 
+        [HttpGet("saveall")]
         public async Task<bool> SaveAll()
         {
             return await _repo.SaveAll();
