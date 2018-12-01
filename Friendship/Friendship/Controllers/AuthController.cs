@@ -58,7 +58,7 @@ namespace Friendship.Controllers
         [HttpPost("register")]
         public async Task<IActionResult> Register([FromBody] RegisterVM user)
         {
-            return await SeedDb();
+            //return await SeedDb();
             if (!string.IsNullOrEmpty(user.UserName))
             {
                 // Make user name lower case
