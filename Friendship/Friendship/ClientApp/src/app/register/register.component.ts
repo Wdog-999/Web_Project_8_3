@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { LoginVM } from '../login-vm';
 import { NgForm } from '@angular/forms';
 import { AuthService } from '../services/auth.service';
+import { RegisterVM } from '../register-vm';
 
 @Component({
   selector: 'app-register',
@@ -11,7 +12,7 @@ import { AuthService } from '../services/auth.service';
 
 export class RegisterComponent implements OnInit {
 
-  model = new LoginVM("", "");
+  model = new RegisterVM("", "", "", "", new Date());
   posted = false;
   submitted = false;
 

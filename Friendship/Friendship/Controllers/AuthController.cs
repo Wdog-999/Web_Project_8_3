@@ -68,7 +68,7 @@ namespace Friendship.Controllers
             {
                 return BadRequest(ModelState);
             }
-            User newUser = new User { UserName = user.UserName };
+            User newUser = new User { UserName = user.UserName, Gender = user.Gender, City = user.City, BirthDate = user.BirthDate };
             var result = await _userManager.CreateAsync(newUser, user.Password);
 
             if (result.Succeeded)

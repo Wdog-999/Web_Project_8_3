@@ -4,6 +4,7 @@ import { LoginVM } from '../login-vm';
 import { AuthUser } from '../models/authUser';
 import { map } from 'rxjs/operators';
 import { JwtHelperService } from '@auth0/angular-jwt';
+import { RegisterVM } from '../register-vm';
 
 @Injectable({
   providedIn: 'root'
@@ -37,9 +38,14 @@ export class AuthService {
     console.log("At least the button works.");
   }
 
-  postRegister(loginVM: LoginVM) {
+  postRegister(loginVM: RegisterVM) {
     return this.http.post(this.baseUrl + 'register', loginVM);
   }
 
+  public isAuthenticated(): boolean {
+
+    const token = localStorage.getItem('token');
+    return !this.jwtHelper.isTokenExpired(token);
+  }
   
 }

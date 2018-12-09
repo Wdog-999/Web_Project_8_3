@@ -9,5 +9,8 @@ namespace Friendship.Data
     {
         public string UserName { get; set; }
         public string Password { get; set; }
+        public string Gender { get; set; }
+        public string City { get; set; }
+        public DateTime BirthDate { get; set; }
     }
 }

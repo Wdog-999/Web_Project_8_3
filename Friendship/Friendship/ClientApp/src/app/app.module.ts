@@ -13,6 +13,8 @@ import { HomeComponent } from './home/home.component';
 import { AuthService } from './services/auth.service';
 import { RegisterComponent } from './register/register.component';
 import { JwtModule } from '@auth0/angular-jwt';
+import { MemberlistComponent } from './memberlist/memberlist.component';
+import { MembersummaryComponent } from './membersummary/membersummary.component';
 
 export function tokenGetter() {
   return localStorage.getItem('access_token');
@@ -24,7 +26,9 @@ export function tokenGetter() {
     NavComponent,
     LoginComponent,
     HomeComponent,
-    RegisterComponent
+    RegisterComponent,
+    MemberlistComponent,
+    MembersummaryComponent
   ],
   imports: [
     BrowserModule,
