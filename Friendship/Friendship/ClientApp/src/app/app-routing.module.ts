@@ -3,13 +3,11 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
 import { AuthguardService as AuthGuard } from './services/authguard.service';
-import { MemberlistComponent } from './memberlist/memberlist.component';
 
 const routes: Routes = [
-  { path: 'memberlist', component: MemberlistComponent, canActivate: [AuthGuard] },
   { path: 'home', component: HomeComponent},
   { path: 'register', component: RegisterComponent },
-  { path: '**', redirectTo: '/memberlist', pathMatch: 'full' }];
+  { path: '**', redirectTo: '/home', pathMatch: 'full' }];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

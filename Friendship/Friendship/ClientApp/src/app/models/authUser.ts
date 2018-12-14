@@ -3,5 +3,6 @@ import { User } from "./user";
 export interface AuthUser
 { 
     tokenString: string; 
-    user: User; 
+  user: User;
+  ID: string;
 }

@@ -1,3 +1,6 @@
-<p>
-  membersummary works!
-</p>
+<mat-card>
+  <mat-card-title>{{user.name}}</mat-card-title>
+  <mat-card-content><img [src]="user.photo"></mat-card-content>
+  {{user.photo}}
+  <mat-card-content>Age: 30   City: {{user.city}}</mat-card-content>
+</mat-card>

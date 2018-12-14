@@ -1,6 +1,7 @@
-<div style="text-align:center">
+<div style="text-align:center" *ngIf="!log">
   <h1>
     Welcome to Friendship!
   </h1>
   <span class="menu"><a routerLink="/register" mat-button>Register</a></span>
 </div>
+<app-memberlist *ngIf="log"></app-memberlist>

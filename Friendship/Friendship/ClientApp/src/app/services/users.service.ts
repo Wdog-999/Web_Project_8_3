@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { JwtHelperService } from '@auth0/angular-jwt';
+import { UserDetails } from '../models/user-details';
 
 @Injectable({
   providedIn: 'root'
@@ -16,6 +17,6 @@ export class UsersService {
   }
 
   getUsers() {
-    return this.http.get(this.baseUrl + 'getusers');
+    return this.http.get<UserDetails[]>(this.baseUrl + 'getusers');
   }
 }

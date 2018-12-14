@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { UserDetails } from '../models/user-details';
 
 @Component({
   selector: 'app-membersummary',
@@ -11,5 +12,7 @@ export class MembersummaryComponent implements OnInit {
 
   ngOnInit() {
   }
+
+  @Input() user: UserDetails;
 
 }
