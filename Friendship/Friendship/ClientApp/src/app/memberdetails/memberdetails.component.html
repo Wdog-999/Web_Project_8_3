@@ -1,0 +1,20 @@
+<div fxlayout="row" fxlayout.xs="column" fxlayoutgap="30px" style="flex-direction: row; box-sizing: border-box; display: flex;" class="ng-star-inserted">
+  <div fxflex="30%" style="margin-right: 30px; flex: 1 1 100%; box-sizing: border-box; max-width: 30%;"><h3>{{user.name}}'s Profile</h3><div *ngIf="!user.photo"><img src="../../assets/icon-user-default.png" height="150" width="150"></div><div *ngIf="user.photo"><img [src]="user.photo" height="150" width="150"></div><dl><dt>Location </dt><dd>{{user.city}}</dd><dt>Birthdate </dt><dd>{{user.birthDate | amLocal | amDateFormat: 'MM-DD-YYYY'}}</dd><dt>Last Active </dt><dd class="ng-star-inserted">{{user.lastActive | amTimeAgo}}</dd><dt>Member Since </dt><dd>{{user.created | amLocal | amDateFormat: 'MM-DD-YYYY'}}</dd><dt>Email </dt><dd>{{user.email}}</dd></dl></div><div fxflex="" style="flex: 1 1 0%; box-sizing: border-box;">
+    <mat-tab-group class="mat-tab-group mat-primary">
+      <mat-tab label="About Me">
+        <h4>Introduction</h4>
+        <div>{{user.introduction}}</div>
+        <br />
+        <h4>Looking For</h4>
+        <div>{{user.lookingFor}}</div>
+        <br />
+        <h4>Interests</h4>
+        <div>{{user.interests}}</div>
+      </mat-tab>
+      <mat-tab label="Photos">
+        <h3>Not Implemented Yet</h3>
+        <h4>We apologize for the inconvenience</h4>
+      </mat-tab>
+    </mat-tab-group>
+  </div>
+</div>

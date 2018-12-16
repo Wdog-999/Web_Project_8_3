@@ -43,6 +43,8 @@ namespace Friendship.Controllers
                     LoginDTO validUser = new LoginDTO();
                     validUser.UserName = user.UserName;
                     validUser.Password = user.Password;
+                    userInfo.LastActive = DateTime.Now;
+                    await _userManager.UpdateAsync(userInfo);
                     string tok = BuildToken(validUser);
                     var user2 = await _signInManager.UserManager.FindByNameAsync(validUser.UserName);
                     return Ok(new { Msg = "Login succeeded", User = user.UserName, ID = user2.Id, tokenString = tok });
@@ -68,7 +70,7 @@ namespace Friendship.Controllers
             {
                 return BadRequest(ModelState);
             }
-            User newUser = new User { UserName = user.UserName, Name = user.UserName, Gender = user.Gender, City = user.City, BirthDate = user.BirthDate };
+            User newUser = new User { UserName = user.UserName, Name = user.UserName, Gender = user.Gender, City = user.City, BirthDate = user.BirthDate, Created = DateTime.Now, LastActive = DateTime.Now};
             var result = await _userManager.CreateAsync(newUser, user.Password);
 
             if (result.Succeeded)

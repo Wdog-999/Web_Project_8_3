@@ -1,6 +1,31 @@
-<mat-card>
-  <mat-card-title>{{user.name}}</mat-card-title>
-  <mat-card-content><img [src]="user.photo"></mat-card-content>
-  {{user.photo}}
-  <mat-card-content>Age: 30   City: {{user.city}}</mat-card-content>
-</mat-card>
+<div class="box">
+  <mat-card class="mat-elevation-z8 mat-card card">
+    <mat-card-title style="text-align: center">{{user.name}}</mat-card-title>
+    <mat-card-content *ngIf="!user.photo"><img src="../../assets/icon-user-default.png" height="150" width="150" /></mat-card-content>
+    <mat-card-content *ngIf="user.photo"><img [src]="user.photo"></mat-card-content>
+    {{user.photo}}
+    <mat-card-content>
+      <div style="text-align: center">Age: {{today | amDifference: user.birthDate :'years' : false}}</div>   <div style="text-align: center">City: {{user.city}}</div>
+    </mat-card-content>
+<mat-card-actions class="actions mat-card-actions">
+  <button mat-button="" tabindex="0" class="mat-button" [routerLink]="['/details']" [queryParams]="{ id: user.id}">
+    <span class="mat-button-wrapper">
+      Details
+    </span>
+    <div class="mat-button-ripple mat-ripple" matripple="">
+    </div>
+    <div class="mat-button-focus-overlay">
+    </div>
+  </button>
+  <button mat-button="" class="mat-button">
+    <span class="mat-button-wrapper">
+      Follow
+    </span>
+    <div class="mat-button-ripple mat-ripple" matripple="">
+    </div>
+    <div class="mat-button-focus-overlay">
+    </div>
+  </button>
+</mat-card-actions>
+  </mat-card>
+</div>

@@ -15,6 +15,9 @@ import { RegisterComponent } from './register/register.component';
 import { JwtModule } from '@auth0/angular-jwt';
 import { MemberlistComponent } from './memberlist/memberlist.component';
 import { MembersummaryComponent } from './membersummary/membersummary.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { MomentModule } from 'angular2-moment';
+import { MemberdetailsComponent } from './memberdetails/memberdetails.component';
 
 export function tokenGetter() {
   return localStorage.getItem('access_token');
@@ -28,7 +31,8 @@ export function tokenGetter() {
     HomeComponent,
     RegisterComponent,
     MemberlistComponent,
-    MembersummaryComponent
+    MembersummaryComponent,
+    MemberdetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -37,6 +41,8 @@ export function tokenGetter() {
     FormsModule,
     MyOwnCustomMaterialModule,
     HttpClientModule,
+    FlexLayoutModule,
+    MomentModule,
     JwtModule.forRoot({
       config: {
         tokenGetter: tokenGetter,

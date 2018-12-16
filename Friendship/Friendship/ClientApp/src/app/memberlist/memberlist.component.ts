@@ -25,6 +25,9 @@ export class MemberlistComponent implements OnInit {
         var index = this.users.findIndex(x => x.name === this.user);
         console.log(index);
         this.users.splice(index, 1);
+        var index = this.users.findIndex(x => x.name === this.user.toLowerCase());
+        console.log(index);
+        this.users.splice(index, 1);
         console.log(this.users)
       });
   }

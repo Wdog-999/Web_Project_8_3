@@ -1,0 +1,26 @@
+.img {
+  width: 100%;
+  margin-bottom: 18%;
+}
+
+.card-picture {
+  width: 23%;
+  margin-bottom: 2%;
+}
+
+.container {
+  min-height: 100%;
+  width: 100%;
+}
+
+.search-form {
+  width: 90%;
+}
+
+.card {
+  max-width: 150px;
+  min-width: 150px;
+  max-height: 290px;
+  min-height: 290px;
+  margin: 10px;
+}

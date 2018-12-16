@@ -11,5 +11,5 @@ export interface UserDetails {
   Introduction: string;
   LookingFor: string;
   Interests: string;
-  Photo: string[];
+  Photo: string;
 }
