@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Friendship.Data
 {
-    internal class FullUserDTO
+    public class FullUserDTO
     {
         public string ID { get; set; }
         public string UserName { get; set; }

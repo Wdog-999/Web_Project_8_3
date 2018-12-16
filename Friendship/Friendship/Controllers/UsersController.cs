@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
+using AutoMapper;
 
 namespace Friendship.Controllers
 {
@@ -17,10 +18,12 @@ namespace Friendship.Controllers
     public class UsersController : ControllerBase
     {
         private readonly IUserRepository _repo;
+        private readonly IMapper _mapper;
 
-        public UsersController(IUserRepository repo)
+        public UsersController(IUserRepository repo, IMapper mapper)
         {
             _repo = repo;
+            _mapper = mapper;
         }
 
         public void Add<T>(T entity) where T : class
@@ -36,7 +39,9 @@ namespace Friendship.Controllers
         [HttpGet("getuser")]
         public async Task<User> GetUser(string id)
         {
-            return await _repo.GetUser(id);
+            var user = await _repo.GetUser(id);
+            //var userDetails = _mapper.Map<FullUserDTO>(user);
+            return user;
         }
 
         [HttpGet("getusers")]

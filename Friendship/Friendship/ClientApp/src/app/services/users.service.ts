@@ -21,9 +21,11 @@ export class UsersService {
   }
 
   private jwt() {
-    let token = localStorage.getItem('token');
+    const token = localStorage.getItem('token');
+    console.log(token);
     if (token) {
       let headers = new HttpHeaders({ 'Authorization': ' Bearer ' + token });
+      console.log(headers);
       return headers;
     }
   } 

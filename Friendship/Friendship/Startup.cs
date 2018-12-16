@@ -1,3 +1,4 @@
+using AutoMapper;
 using Friendship.Data;
 using Friendship.Models;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -44,6 +45,7 @@ namespace Friendship
                 });
 
             services.AddScoped<IUserRepository, UserRepository>();
+            services.AddAutoMapper();
 
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
