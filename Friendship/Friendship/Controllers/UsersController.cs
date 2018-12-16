@@ -14,7 +14,7 @@ namespace Friendship.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize]
+    //[Authorize]
     public class UsersController : ControllerBase
     {
         private readonly IUserRepository _repo;
@@ -37,11 +37,11 @@ namespace Friendship.Controllers
         }
 
         [HttpGet("getuser")]
-        public async Task<User> GetUser(string id)
+        public async Task<FullUserDTO> GetUser(string id)
         {
             var user = await _repo.GetUser(id);
-            //var userDetails = _mapper.Map<FullUserDTO>(user);
-            return user;
+            var userDetails = _mapper.Map<FullUserDTO>(user);
+            return userDetails;
         }
 
         [HttpGet("getusers")]
