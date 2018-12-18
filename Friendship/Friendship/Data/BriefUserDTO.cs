@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Friendship.Data
 {
-    internal class BriefUserDTO
+    public class BriefUserDTO
     {
         public string ID { get; set; }
         public string UserName { get; set; }
@@ -15,6 +15,6 @@ namespace Friendship.Data
         public DateTime Created { get; set; }
         public DateTime LastActive { get; set; }
         public string City { get; set; }
-        public string Photo { get; set; }
+        //public string PhotoUrl { get; set; }
     }
 }

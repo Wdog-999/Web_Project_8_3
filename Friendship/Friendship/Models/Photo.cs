@@ -10,6 +10,6 @@ namespace Friendship.Models
         public DateTime DateAdded { get; set; }
         public bool IsProfilePic { get; set; }
         public User User { get; set; }
-        public int UserId { get; set; }
+        public string UserId { get; set; }
     }
 }

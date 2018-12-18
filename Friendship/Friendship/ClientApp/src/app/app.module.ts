@@ -18,6 +18,7 @@ import { MembersummaryComponent } from './membersummary/membersummary.component'
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MomentModule } from 'angular2-moment';
 import { MemberdetailsComponent } from './memberdetails/memberdetails.component';
+import { MembereditComponent } from './memberedit/memberedit.component';
 
 export function tokenGetter() {
   return localStorage.getItem('access_token');
@@ -32,7 +33,8 @@ export function tokenGetter() {
     RegisterComponent,
     MemberlistComponent,
     MembersummaryComponent,
-    MemberdetailsComponent
+    MemberdetailsComponent,
+    MembereditComponent
   ],
   imports: [
     BrowserModule,

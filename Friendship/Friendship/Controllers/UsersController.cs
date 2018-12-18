@@ -45,10 +45,11 @@ namespace Friendship.Controllers
         }
 
         [HttpGet("getusers")]
-        public async Task<IEnumerable<User>> GetUsers()
+        public async Task<IEnumerable<BriefUserDTO>> GetUsers()
         {
             var users = await _repo.GetUsers();
-            return users;
+            var userList = _mapper.Map<IEnumerable<BriefUserDTO>>(users);
+            return userList;
         }
 
         [HttpGet("saveall")]

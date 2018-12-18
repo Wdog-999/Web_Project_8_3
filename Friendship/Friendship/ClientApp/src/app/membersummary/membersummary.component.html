@@ -2,7 +2,7 @@
   <mat-card class="mat-elevation-z8 mat-card card">
     <mat-card-title style="text-align: center">{{user.name}}</mat-card-title>
     <mat-card-content *ngIf="!user.photo"><img src="../../assets/icon-user-default.png" height="150" width="150" /></mat-card-content>
-    <mat-card-content *ngIf="user.photo"><img [src]="user.photo"></mat-card-content>
+    <mat-card-content *ngIf="user.photo"><img [src]="user.photourl"></mat-card-content>
     {{user.photo}}
     <mat-card-content>
       <div style="text-align: center">Age: {{today | amDifference: user.birthDate :'years' : false}}</div>   <div style="text-align: center">City: {{user.city}}</div>

@@ -68,7 +68,7 @@ namespace Friendship
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, AutoMapper.IConfigurationProvider autoMapper)
         {
             if (env.IsDevelopment())
             {
@@ -104,6 +104,7 @@ namespace Friendship
             });
 
             app.UseAuthentication();
+            autoMapper.AssertConfigurationIsValid();
         }
     }
 }

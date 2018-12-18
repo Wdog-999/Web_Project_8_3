@@ -39,7 +39,12 @@ export class AuthService {
   }
 
   postRegister(loginVM: RegisterVM) {
-    return this.http.post(this.baseUrl + 'register', loginVM);
+    /*var success =*/ return this.http.post(this.baseUrl + 'register', loginVM);
+    //if (success) {
+    //  var newUser: LoginVM = { UserName: loginVM.UserName, Password: loginVM.Password };
+    //  console.log(newUser);
+    //  return this.login(newUser);
+    //}
   }
 
   public isAuthenticated(): boolean {
