@@ -16,6 +16,7 @@ export class LoginComponent implements OnInit {
   model = new LoginVM("", "");
   log = false;
   user = "";
+  id = "";
   
 
   constructor(private service: AuthService, private jwtHelper: JwtHelperService) { }
@@ -23,8 +24,10 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
     if (this.jwtHelper.isTokenExpired(localStorage.getItem('token'))) { this.log = false; }
     else {
-    this.log = true;
-    this.user = localStorage.getItem('user')}
+      this.log = true;
+      this.user = JSON.parse(localStorage.getItem('user'));
+      this.id = localStorage.getItem('id');
+    }
   }
 
   onSubmit(form: NgForm) {

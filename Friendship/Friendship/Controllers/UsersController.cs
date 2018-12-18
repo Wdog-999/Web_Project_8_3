@@ -19,11 +19,13 @@ namespace Friendship.Controllers
     {
         private readonly IUserRepository _repo;
         private readonly IMapper _mapper;
+        private readonly FriendshipContext _context;
 
-        public UsersController(IUserRepository repo, IMapper mapper)
+        public UsersController(IUserRepository repo, IMapper mapper, FriendshipContext context)
         {
             _repo = repo;
             _mapper = mapper;
+            _context = context;
         }
 
         public void Add<T>(T entity) where T : class
@@ -50,6 +52,20 @@ namespace Friendship.Controllers
             var users = await _repo.GetUsers();
             var userList = _mapper.Map<IEnumerable<BriefUserDTO>>(users);
             return userList;
+        }
+
+        [HttpPut("updateuser")]
+        public async void UpdateUser(string id, User changes)
+        {
+            var user = await _repo.GetUser(id);
+            var userchanges = _mapper.Map<EditUserDTO>(changes);
+            user.Interests = userchanges.Interests;
+            user.Introduction = userchanges.Introduction;
+            user.LookingFor = userchanges.LookingFor;
+            user.Name = userchanges.Name;
+            _context.Update(user);
+            _context.SaveChanges();
+
         }
 
         [HttpGet("saveall")]

@@ -4,5 +4,5 @@ export interface AuthUser
 { 
     tokenString: string; 
   user: User;
-  ID: string;
+  id: string;
 }

@@ -9,7 +9,14 @@
   <!--TODO: remove this: {{model.Password}}-->
   <button mat-stroked-button type="submit" [disabled]="!login.form.valid">Log In</button>
 </form>
-<div *ngIf="log" class="menu">
-  Hi, {{user}}
-  <button mat-stroked-button (click)="logOut()">Log Out</button>
+
+<div *ngIf="log" class="menu" style="color:aliceblue">
+  <mat-select placeholder="Hi, {{user}}" style="width:150px">
+    <mat-option>
+      <button mat-stroked-button [routerLink]="['/edit']" [queryParams]="{ id: id }">Edit Profile</button>
+    </mat-option>
+      <mat-option>
+      <button mat-stroked-button (click)="logOut()">Log Out</button>
+    </mat-option>
+  </mat-select>
 </div>

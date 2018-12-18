@@ -47,7 +47,9 @@ namespace Friendship.Controllers
                     await _userManager.UpdateAsync(userInfo);
                     string tok = BuildToken(validUser);
                     var user2 = await _signInManager.UserManager.FindByNameAsync(validUser.UserName);
-                    return Ok(new { Msg = "Login succeeded", User = user.UserName, ID = user2.Id, tokenString = tok });
+                    string x = user2.Id;
+                    Console.Write(x);
+                    return Ok(new { Msg = "Login succeeded", User = user.UserName, id = x, tokenString = tok });
                 }
                 else
                 {

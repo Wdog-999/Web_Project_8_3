@@ -36,18 +36,22 @@ namespace Friendship.Data
                 return null;
             }
 
-            var user = await _context.Users
+            var user = await _context.Users.Include(p => p.Photos)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (user == null)
             {
                 return null;
             }
+            //IQueryable<Photo> photoQuery = from p in _context.Photos
+            //                                 select p;
+            //var photos = photoQuery;
+            //user.Photos = photos.Where(s => s.UserId == user.Id);
             return user;
         }
 
         public async Task<IEnumerable<User>> GetUsers()
         {
-            var users = from u in _context.Users
+            var users = from u in _context.Users.Include(p => p.Photos)
                         select u;
             return users;
         }

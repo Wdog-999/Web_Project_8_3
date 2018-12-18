@@ -23,8 +23,13 @@ export class AuthService {
     return this.http.post<AuthUser>('api/auth/login', loginVM)
       .pipe(map((result: AuthUser) => {
         if (result) {
+          var x = result.id;
+          console.log(x);
           localStorage.setItem('token', result.tokenString);
           localStorage.setItem('user', JSON.stringify(result.user));
+          if (x) {
+            localStorage.setItem('id', x);
+          }
         }
         console.log(this.jwtHelper.isTokenExpired(result.tokenString));
         console.log(this.jwtHelper.getTokenExpirationDate(result.tokenString));
@@ -35,6 +40,7 @@ export class AuthService {
   logout() {
     localStorage.removeItem('token');
     localStorage.removeItem('user');
+    localStorage.removeItem('id');
     console.log("At least the button works.");
   }
 
