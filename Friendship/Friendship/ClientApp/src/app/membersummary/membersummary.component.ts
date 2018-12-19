@@ -7,6 +7,7 @@ import { UserDetails } from '../models/user-details';
   styleUrls: ['./membersummary.component.css']
 })
 export class MembersummaryComponent implements OnInit {
+  today: any;
 
   constructor() { }
 

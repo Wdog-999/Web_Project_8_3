@@ -1,15 +1,15 @@
 export interface UserDetails {
 
-  Name: string;
-  Id: string;
-  Gender: string;
-  City: string;
-  BirthDate: Date;
-  LastActive: Date;
-  Created: Date;
-  Email: string;
-  Introduction: string;
-  LookingFor: string;
-  Interests: string;
-  Photo: string;
+  name: string;
+  id: string;
+  gender: string;
+  city: string;
+  birthDate: Date;
+  lastActive: Date;
+  created: Date;
+  email: string;
+  introduction: string;
+  lookingFor: string;
+  interests: string;
+  photoUrl: string;
 }
