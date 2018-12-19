@@ -22,6 +22,8 @@ export class UsersService {
   }
 
   updateUser(id: string, user: UserDetails) {
+    localStorage.removeItem('name');
+    localStorage.setItem('name', user.name);
     return this.http.put(this.baseUrl + 'updateuser?id=' + id, user);
   }
 

@@ -11,7 +11,7 @@
 </form>
 
 <div *ngIf="log" class="menu" style="color:aliceblue">
-  <mat-select placeholder="Hi, {{user}}" style="width:150px">
+  <mat-select placeholder="Hi, {{name}}" style="width:250px">
     <mat-option>
       <button mat-stroked-button [routerLink]="['/edit']" [queryParams]="{ id: id }">Edit Profile</button>
     </mat-option>

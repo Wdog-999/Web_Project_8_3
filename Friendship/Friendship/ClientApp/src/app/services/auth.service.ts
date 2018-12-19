@@ -24,11 +24,13 @@ export class AuthService {
       .pipe(map((result: AuthUser) => {
         if (result) {
           var x = result.id;
+          var y = result.name;
           console.log(x);
           localStorage.setItem('token', result.tokenString);
           localStorage.setItem('user', JSON.stringify(result.user));
           if (x) {
             localStorage.setItem('id', x);
+            localStorage.setItem('name', y);
           }
         }
         console.log(this.jwtHelper.isTokenExpired(result.tokenString));
@@ -41,16 +43,16 @@ export class AuthService {
     localStorage.removeItem('token');
     localStorage.removeItem('user');
     localStorage.removeItem('id');
+    localStorage.removeItem('name');
     console.log("At least the button works.");
   }
 
   postRegister(loginVM: RegisterVM) {
-    /*var success =*/ return this.http.post(this.baseUrl + 'register', loginVM);
-    //if (success) {
-    //  var newUser: LoginVM = { UserName: loginVM.UserName, Password: loginVM.Password };
-    //  console.log(newUser);
-    //  return this.login(newUser);
-    //}
+    this.http.post(this.baseUrl + 'register', loginVM);
+    var newUser: LoginVM = { UserName: loginVM.UserName, Password: loginVM.Password };
+    console.log(newUser);
+    return this.login(newUser);
+
   }
 
   public isAuthenticated(): boolean {

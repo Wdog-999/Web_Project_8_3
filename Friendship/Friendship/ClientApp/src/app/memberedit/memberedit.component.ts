@@ -44,7 +44,7 @@ export class MembereditComponent implements OnInit {
       },
         error => {
           console.log(error)
-        });
+      });
     window.location.reload();
   }
 

@@ -55,7 +55,7 @@ namespace Friendship.Controllers
         }
 
         [HttpPut("updateuser")]
-        public async void UpdateUser(string id, User changes)
+        public async Task UpdateUser(string id, User changes)
         {
             var user = await _repo.GetUser(id);
             var userchanges = _mapper.Map<EditUserDTO>(changes);
@@ -64,7 +64,7 @@ namespace Friendship.Controllers
             user.LookingFor = userchanges.LookingFor;
             user.Name = userchanges.Name;
             _context.Update(user);
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
 
         }
 

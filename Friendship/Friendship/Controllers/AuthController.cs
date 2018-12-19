@@ -13,8 +13,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json;
 
-//testing
-
 namespace Friendship.Controllers
 {
     [Route("api/[controller]")]
@@ -48,8 +46,9 @@ namespace Friendship.Controllers
                     string tok = BuildToken(validUser);
                     var user2 = await _signInManager.UserManager.FindByNameAsync(validUser.UserName);
                     string x = user2.Id;
+                    string y = user2.Name;
                     Console.Write(x);
-                    return Ok(new { Msg = "Login succeeded", User = user.UserName, id = x, tokenString = tok });
+                    return Ok(new { Msg = "Login succeeded", User = user.UserName, id = x, tokenString = tok, name = y });
                 }
                 else
                 {

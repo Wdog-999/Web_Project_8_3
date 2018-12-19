@@ -17,6 +17,7 @@ export class LoginComponent implements OnInit {
   log = false;
   user = "";
   id = "";
+  name = "";
   
 
   constructor(private service: AuthService, private jwtHelper: JwtHelperService) { }
@@ -27,6 +28,7 @@ export class LoginComponent implements OnInit {
       this.log = true;
       this.user = JSON.parse(localStorage.getItem('user'));
       this.id = localStorage.getItem('id');
+      this.name = localStorage.getItem('name');
     }
   }
 
